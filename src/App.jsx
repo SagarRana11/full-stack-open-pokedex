@@ -4,7 +4,7 @@ import { useApi } from './useApi'
 import LoadingSpinner from './LoadingSpinner'
 import ErrorMessage from './ErrorMessage'
 import PokemonPage from './PokemonPage'
-import PokemonList from './PokemonList';
+import PokemonList from './PokemonList'
 
 const mapResults = (({ results }) => results.map(({ url, name }) => ({
   url,
@@ -20,8 +20,7 @@ const App = () => {
     return <LoadingSpinner />
   }
   if (error) {
-    return <ErrorMessage error={error}
-    />
+    return <ErrorMessage error={error} />
   }
 
   let next = null
@@ -33,23 +32,14 @@ const App = () => {
     next = pokemonList.find(({ id }) => id === pokemonId + 1)
   }
 
-  return (<
-            Routes >
-    <
-      Route exact path="/"
-      element={< PokemonList pokemonList={pokemonList}
-      />} />
-    <
-      Route exact path="/pokemon/:name"
-      element={<
-        PokemonPage pokemonList={pokemonList}
-        previous={previous}
-        next={next}
-      />
-      }
-    /> <
-                /Routes>
-    )
-        }
+  return (
+    <Routes>
+      <Route exact path="/" element={<PokemonList pokemonList={pokemonList} />} />
+      <Route exact path="/pokemon/:name" element={
+        <PokemonPage pokemonList={pokemonList} previous={previous} next={next} />
+      } />
+    </Routes>
+  )
+}
 
-    export default App
+export default App
