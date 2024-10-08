@@ -32,7 +32,7 @@ module.exports = {
       'error',
       'single'
     ],
-    semi: off,
+    semi: 'off',
     eqeqeq: 'error',
     'no-trailing-spaces': 'error',
     'object-curly-spacing': [
